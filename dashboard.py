@@ -7,13 +7,13 @@ import seaborn as sns
 def load_data(url):
     try:
         data = pd.read_csv(url)
-        return data
+        return data, None
     except Exception as e:
         return None, e
 
 def main():
-    df_day, error_day = load_data('https://github.com/YaserAp/uasAnalisisData/blob/main/day.csv')
-    df_hour, error_hour = load_data('https://github.com/YaserAp/uasAnalisisData/blob/main/hour.csv')
+    df_day, error_day = load_data('https://raw.githubusercontent.com/YaserAp/uasAnalisisData/main/day.csv')
+    df_hour, error_hour = load_data('https://raw.githubusercontent.com/YaserAp/uasAnalisisData/main/hour.csv')
 
     if df_day is not None and df_hour is not None:
         data_2011 = df_hour[df_hour['yr'] == 0]
