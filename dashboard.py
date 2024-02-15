@@ -3,17 +3,17 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-@st.cache_data(allow_output_mutation=True)
+@st.cache
 def load_data(url):
     try:
         data = pd.read_csv(url)
         return data
     except Exception as e:
-        return None
+        return None, e
 
 def main():
-    df_day = load_data('https://github.com/YaserAp/uasAnalisisData/blob/main/day.csv')
-    df_hour = load_data('https://github.com/YaserAp/uasAnalisisData/blob/main/hour.csv')
+    df_day, error_day = load_data('https://github.com/YaserAp/uasAnalisisData/blob/main/day.csv')
+    df_hour, error_hour = load_data('https://github.com/YaserAp/uasAnalisisData/blob/main/hour.csv')
 
     if df_day is not None and df_hour is not None:
         data_2011 = df_hour[df_hour['yr'] == 0]
@@ -21,7 +21,10 @@ def main():
 
         create_visualization(data_2011, data_2012)
     else:
-        st.error("Gagal memuat data. Silakan periksa URL atau coba lagi nanti.")
+        if error_day:
+            st.error(f"Terjadi kesalahan saat memuat data day.csv: {error_day}")
+        if error_hour:
+            st.error(f"Terjadi kesalahan saat memuat data hour.csv: {error_hour}")
 
 def create_visualization(data_2011, data_2012):
     peminjaman_2011 = data_2011.groupby(data_2011['dteday'].dt.month)['cnt'].sum()
