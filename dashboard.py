@@ -30,7 +30,7 @@ def create_visualization(data):
     st.pyplot(fig)
 
     with st.expander('Penjelasan Analisis Peminjaman:'):
-        st.write('Setelah menganalisis data peminjaman sepeda untuk tahun 2011 dan 2012, kami menemukan bahwa terjadi peningkatan jumlah peminjaman sepeda dari tahun 2011 ke tahun 2012. Tahun 2011 mencapai puncak peminjaman sepeda pada bulan Juli, sementara tahun 2012 mencapai puncaknya pada bulan Juni. Pola umum menunjukkan bahwa peminjaman sepeda cenderung meningkat selama musim panas dan musim semi. Data ini dapat digunakan untuk perencanaan dan manajemen peminjaman sepeda di masa mendatang, dengan memperhitungkan pola musiman dan tren tahunan.')
+        st.write('Setelah menganalisis data peminjaman sepeda untuk tahun 2011 dan 2012, Saya menemukan bahwa terjadi peningkatan jumlah peminjaman sepeda dari tahun 2011 ke tahun 2012. Tahun 2011 mencapai puncak peminjaman sepeda pada bulan Juli, sementara tahun 2012 mencapai puncaknya pada bulan Juni. Pola umum menunjukkan bahwa peminjaman sepeda cenderung meningkat selama musim panas dan musim semi. Data ini dapat digunakan untuk perencanaan dan manajemen peminjaman sepeda di masa mendatang, dengan memperhitungkan pola musiman dan tren tahunan.')
 
 def show_dashboard():
     
